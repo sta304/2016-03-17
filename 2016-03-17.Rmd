@@ -27,7 +27,7 @@ The specific topics covered will be:
 
 * SRS for proportions and counts
 * Stratified random sampling
-* Errors of observation (required reading discussion on Monday)
+* Required reading topics added 2016-03-16 (required reading discussion on Monday)
 
 ## Stratified example question
 
@@ -39,11 +39,11 @@ Here's my spreadsheet solution to question 5.1 (a sample size question):
 
 ## Stratified example question
 
-On a test I might produce a similar table but with some of the calculated entries obscured, like this:
+On a test I might produce a similar table but with some of the calculated entries obscured, like this (ALTHOUGH THE W_i ROW IS WRONG):
 
 ![5_1o](5_1obscured.PNG)
 
-(Note: spreadsheet available in this lecture's github: `stratified.xlsx`)
+(Note: CORRECTED spreadsheet available in this lecture's github: `stratified.xlsx`)
 
 # back to ratio, regression, difference estimation
 
@@ -61,7 +61,7 @@ Formula summary:
 
 $r$ | $\hat\tau_y$ | $\hat\mu_y$ | $\hat V(r)$
 ----|--------------|-------------|------------
-$\bar y\big/\bar x$ | $r\tau_x$ | $r\mu_x$ | $s^2_r$
+$\bar y\big/\bar x$ | $r\tau_x$ | $r\mu_x$ | $s^2_r(1-n/N)$
 
 The error bounds are based on this new object:
 $$s^2_r = \frac{\sum_{i=1}^n (y_i - r x_i )^2}{n-1}$$
@@ -220,7 +220,7 @@ As usual $\sigma^2_R$ is unknown, so some prior information ought to be used - s
 
 ## sample size for ratio example { .build }
 
-Suppose with the rats we wanted to estimate the new drug mean time $\mu_y$ with a bound $B$ of 0.01. We can use $s^2_r = `r s2r`$ as a guess for $\sigma^2_R$. The sample size required is:
+Suppose with the rats we wanted to estimate the ratio $R$ with a bound $B$ of 0.01. We can use $s^2_r = `r s2r`$ as a guess for $\sigma^2_R$. The sample size required is:
 
 $$n = \frac{`r N_rats`\cdot`r s2r`}{(`r N_rats-1`)\frac{`r (0.01*mu_x)^2`}{4} + `r s2r`} = 
 `r N_rats*s2r/((N_rats - 1)*(0.01*mu_x)^2/4 + s2r)`$$
